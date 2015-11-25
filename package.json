@@ -1,0 +1,19 @@
+{
+  "name": "quora-qa",
+  "version": "1.0.0",
+  "description": "Fun exercises.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdavidzhu/quora-qa.git"
+  },
+  "author": "David Zhu <hdavidzhu@gmail.com> (http://hdavidzhu.github.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hdavidzhu/quora-qa/issues"
+  },
+  "homepage": "https://github.com/hdavidzhu/quora-qa#readme"
+}
