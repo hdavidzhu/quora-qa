@@ -1,6 +1,15 @@
-// IMPORTS =====================================================================
+// UTILS =======================================================================
 
-var utils = require('./utils');
+var clamp = function(inputNum, _min, _max) {
+
+  // Set defaults if not present.
+  var min = _min;
+  var max = _max;
+  if (isNaN(min)) { min = -1; }
+  if (isNaN(max)) { max = 1;  }
+
+  return Math.min(Math.max(inputNum, min), max);
+}
 
 
 
@@ -14,7 +23,7 @@ var generateBaseTrendLayer = function(inputDataArray) {
     var rightData  = inputDataArray[dataIndex + 1];
 
     var difference = rightData - leftData;
-        difference = utils.clamp(difference);
+        difference = clamp(difference);
 
     baseTrendLayer.push(difference);
   }
@@ -50,7 +59,7 @@ var generateTrendLayer = function(priorTrendLayer) {
     }
 
     // Otherwise, push the agreeing sign.
-    var agreeingSign = utils.clamp(summation);
+    var agreeingSign = clamp(summation);
     resultingTrendLayer.push(agreeingSign);
   }
 
@@ -149,6 +158,8 @@ process.stdin.on('end', function() {
 
 module.exports = {
   BEND: BEND,
+
+  clamp: clamp,
 
   generateBaseTrendLayer: generateBaseTrendLayer,
   generateTrendLayer: generateTrendLayer,
