@@ -1,5 +1,5 @@
 {
-  "name": "quora-qa",
+  "name": "sunflower",
   "version": "1.0.0",
   "description": "Fun exercises.",
   "main": "index.js",
@@ -8,12 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hdavidzhu/quora-qa.git"
+    "url": "git+https://github.com/hdavidzhu/sunflower.git"
   },
   "author": "David Zhu <hdavidzhu@gmail.com> (http://hdavidzhu.github.io)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hdavidzhu/quora-qa/issues"
+    "url": "https://github.com/hdavidzhu/sunflower/issues"
   },
-  "homepage": "https://github.com/hdavidzhu/quora-qa#readme"
+  "homepage": "https://github.com/hdavidzhu/sunflower#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.2.0",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0"
+  }
 }

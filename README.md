@@ -1,2 +1,1 @@
-# quora-qa
-Fun exercises.
+# Sunflower
