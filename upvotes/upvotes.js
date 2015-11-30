@@ -35,7 +35,7 @@ var BEND = 'b';
 var generateTrendLayer = function(priorTrendLayer) {
   var resultingTrendLayer = [];
 
-  for (var dataIndex = 0; dataIndex < priorTrendLayer.length -1; dataIndex++) {
+  for (var dataIndex = 0; dataIndex < priorTrendLayer.length - 1; dataIndex++) {
     var leftChild    = priorTrendLayer[dataIndex];
     var rightChild   = priorTrendLayer[dataIndex + 1];
 
@@ -137,13 +137,14 @@ process.stdin.on('end', function() {
   var data = input.split('\n');
 
   // Processed data.
+  var dataRange = data[0].split(' ')[0];
   var windowSize = data[0].split(' ')[1];
-  var upvoteData = data[1].split(' ');
-
+  var upvoteData = data[1].split(' ').slice(0, dataRange);
+  
   // console.log(dataRange);
   // console.log(windowSize);
   // console.log(upvoteData);
-  
+
   var resultingArray = calculateTrends(upvoteData, windowSize);
   for (var i = 0; i < resultingArray.length; i++) {
     console.log(resultingArray[i]);

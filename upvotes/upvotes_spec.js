@@ -52,6 +52,14 @@ describe('sumSingleWindow', function() {
     var result = upvotes.sumSingleWindow(testDifferenceTree, 1, 2);
     expect(result).to.equal(-2);
   });
+
+  it('can go one level higher', function() {
+    var result = upvotes.sumSingleWindow(testDifferenceTree, 2, 0);
+    expect(result).to.equal(2);
+
+    var result = upvotes.sumSingleWindow(testDifferenceTree, 2, 1);
+    expect(result).to.equal(-1);
+  });
 });
 
 describe('createTrendResults', function() {
