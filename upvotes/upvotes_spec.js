@@ -43,6 +43,13 @@ describe('recursivelyBuildTrendLayers', function() {
 
 describe('sumSingleWindow', function() {
   it('can sum out a single window', function() {
-    
+    var result = upvotes.sumSingleWindow(testDifferenceTree, 3, 0);
+    expect(result).to.equal(3);
+
+    var result = upvotes.sumSingleWindow(testDifferenceTree, 3, 1);
+    expect(result).to.equal(0);
+
+    var result = upvotes.sumSingleWindow(testDifferenceTree, 3, 2);
+    expect(result).to.equal(-2);
   });
 });

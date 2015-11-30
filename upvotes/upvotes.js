@@ -80,7 +80,7 @@ var sumSingleWindow = function(groupedTrendLayer, windowSize, baseIndex) {
   var singleWindowSum = 0;
 
   // First, loop through each requested level.
-  for (var level = 0; level < windowSizeOffset; level++) {
+  for (var level = 0; level <= windowSizeOffset; level++) {
     var currentLevel = groupedTrendLayer[windowSizeOffset - level];
 
     // Add the correct segment in each level.
@@ -102,5 +102,6 @@ module.exports = {
 
   generateBaseTrendLayer: generateBaseTrendLayer,
   generateTrendLayer: generateTrendLayer,
-  recursivelyBuildTrendLayers: recursivelyBuildTrendLayers
+  recursivelyBuildTrendLayers: recursivelyBuildTrendLayers,
+  sumSingleWindow: sumSingleWindow
 }
