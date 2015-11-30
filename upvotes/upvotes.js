@@ -134,18 +134,16 @@ process.stdin.on('data', function(data) {
 });
 
 process.stdin.on('end', function() {
-  var data = input.split(' ');
-  for (var i = 0; i < data.length; i++) { data[i] = +data[i]; }
+  var data = input.split('\n');
 
   // Processed data.
-  var dataRange   = data[0];
-  var windowSize  = data[1];
-  var upvoteData = data.slice(3);
+  var windowSize = data[0].split(' ')[1];
+  var upvoteData = data[1].split(' ');
 
   // console.log(dataRange);
   // console.log(windowSize);
   // console.log(upvoteData);
-
+  
   var resultingArray = calculateTrends(upvoteData, windowSize);
   for (var i = 0; i < resultingArray.length; i++) {
     console.log(resultingArray[i]);
