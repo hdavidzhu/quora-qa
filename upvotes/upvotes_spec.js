@@ -60,3 +60,10 @@ describe('createTrendResults', function() {
     expect(result).to.deep.equal([3, 0, -2]);
   });
 });
+
+describe('calcuateTrends', function() {
+  it('can return the expected results', function() {
+    var result = upvotes.calculateTrends([1, 2, 3, 1, 1], 3);
+    expect(result).to.deep.equal([3, 0, -2]);
+  });
+});

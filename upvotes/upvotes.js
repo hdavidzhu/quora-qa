@@ -106,6 +106,45 @@ var createTrendResults = function(groupedTrendLayer, windowSize) {
 
 
 
+// INTERFACE WITH PROBLEM ======================================================
+
+var calculateTrends = function(inputDataArray, windowSize) {
+  var baseLayer          = generateBaseTrendLayer(inputDataArray);
+  var groupedTrendLayers = recursivelyBuildTrendLayers([baseLayer], windowSize - 2);
+  var trendResults       = createTrendResults(groupedTrendLayers, windowSize);
+
+  return trendResults;
+}
+
+process.stdin.resume();
+process.stdin.setEncoding('ascii');
+
+var input = "";
+process.stdin.on('data', function(data) {
+    input += data;
+});
+
+process.stdin.on('end', function() {
+  var data = input.split(' ');
+  for (var i = 0; i < data.length; i++) { data[i] = +data[i]; }
+
+  // Processed data.
+  var dataRange   = data[0];
+  var windowSize  = data[1];
+  var upvoteData = data.slice(3);
+
+  // console.log(dataRange);
+  // console.log(windowSize);
+  // console.log(upvoteData);
+
+  var resultingArray = calculateTrends(upvoteData, windowSize);
+  for (var i = 0; i < resultingArray.length; i++) {
+    console.log(resultingArray[i]);
+  }
+});
+
+
+
 // EXPORTS =====================================================================
 
 module.exports = {
@@ -116,5 +155,6 @@ module.exports = {
   recursivelyBuildTrendLayers: recursivelyBuildTrendLayers,
 
   sumSingleWindow: sumSingleWindow,
-  createTrendResults: createTrendResults
+  createTrendResults: createTrendResults,
+  calculateTrends: calculateTrends
 }
