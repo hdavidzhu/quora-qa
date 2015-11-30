@@ -75,13 +75,12 @@ var recursivelyBuildTrendLayers = function(groupedTrendLayers, depth) {
 
 // SUMMATION ===================================================================
 
-var sumSingleWindow = function(groupedTrendLayer, windowSize, baseIndex) {
-  var windowSizeOffset = windowSize - 2;
+var sumSingleWindow = function(groupedTrendLayer, depth, baseIndex) {
   var singleWindowSum = 0;
 
   // First, loop through each requested level.
-  for (var level = 0; level <= windowSizeOffset; level++) {
-    var currentLevel = groupedTrendLayer[windowSizeOffset - level];
+  for (var level = 0; level <= depth; level++) {
+    var currentLevel = groupedTrendLayer[depth - level];
 
     // Add the correct segment in each level.
     for (var index = baseIndex; index <= baseIndex + level; index++) {
@@ -91,6 +90,18 @@ var sumSingleWindow = function(groupedTrendLayer, windowSize, baseIndex) {
   }
 
   return singleWindowSum;
+}
+
+var createTrendResults = function(groupedTrendLayer, windowSize) {
+  var windowSizeOffset = windowSize - 2;
+  var resultingArray = [];
+
+  for (var windowIndex = 0; windowIndex < groupedTrendLayer[windowSizeOffset].length; windowIndex++) {
+    var output = sumSingleWindow(groupedTrendLayer, windowSizeOffset, windowIndex);
+    resultingArray.push(output);
+  }
+
+  return resultingArray;
 }
 
 
@@ -103,5 +114,7 @@ module.exports = {
   generateBaseTrendLayer: generateBaseTrendLayer,
   generateTrendLayer: generateTrendLayer,
   recursivelyBuildTrendLayers: recursivelyBuildTrendLayers,
-  sumSingleWindow: sumSingleWindow
+
+  sumSingleWindow: sumSingleWindow,
+  createTrendResults: createTrendResults
 }

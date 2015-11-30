@@ -43,13 +43,20 @@ describe('recursivelyBuildTrendLayers', function() {
 
 describe('sumSingleWindow', function() {
   it('can sum out a single window', function() {
-    var result = upvotes.sumSingleWindow(testDifferenceTree, 3, 0);
+    var result = upvotes.sumSingleWindow(testDifferenceTree, 1, 0);
     expect(result).to.equal(3);
 
-    var result = upvotes.sumSingleWindow(testDifferenceTree, 3, 1);
+    var result = upvotes.sumSingleWindow(testDifferenceTree, 1, 1);
     expect(result).to.equal(0);
 
-    var result = upvotes.sumSingleWindow(testDifferenceTree, 3, 2);
+    var result = upvotes.sumSingleWindow(testDifferenceTree, 1, 2);
     expect(result).to.equal(-2);
+  });
+});
+
+describe('createTrendResults', function() {
+  it('can sum out all windows', function() {
+    var result = upvotes.createTrendResults(testDifferenceTree, 3);
+    expect(result).to.deep.equal([3, 0, -2]);
   });
 });
